@@ -32,9 +32,9 @@ def simulate_multiple_aircraft(configs: List[Dict], data_queue: queue.Queue):
             
             state.latitude = 37.5665 + radius * math.cos(angle)
             state.longitude = 126.9780 + radius * math.sin(angle)
-            state.altitude_m = 200 + i * 50 + 50 * math.sin(elapsed * 0.1 + i)
+            state.altitude_m = 2000 + i * 50 + 50 * math.sin(elapsed * 0.1 + i)
             
-            state.yaw_deg = (math.degrees(angle)) % 360 
+            state.yaw_deg = (math.degrees(angle)+ 90) % 360 
             state.roll_deg = -20 * math.cos(angle)
             state.pitch_deg = 5 * math.sin(angle)
             

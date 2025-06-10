@@ -57,11 +57,11 @@ class MAVROSBridge:
     def global_position_callback(self, msg, ac_id):
         state = self.aircraft_states[ac_id]
         if msg.status.status >= 0:
-            state.latitude = msg.longitude
-            state.longitude = msg.latitude
+            state.latitude = msg.latitude
+            state.longitude = msg.longitude
             state.altitude_m = msg.altitude
-        print(f"Global position updated for {ac_id}: "
-              f"Lat={state.latitude}, Lon={state.longitude}, Alt={state.altitude_m}m")
+        #print(f"Global position updated for {ac_id}: "
+        #      f"Lat={state.latitude}, Lon={state.longitude}, Alt={state.altitude_m}m")
 
     def imu_callback(self, msg, ac_id):
         state = self.aircraft_states[ac_id]

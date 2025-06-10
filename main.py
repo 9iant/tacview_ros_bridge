@@ -13,7 +13,8 @@ from config import AIRCRAFT_CONFIG
 from tacview_server import TacviewServer
 
 # Check for ROS availability
-IS_ROS = False  # Set to True for testing without ROS
+IS_ROS = True  # Set to True for testing without ROS
+
 if IS_ROS:
     print("[*] Running in ROS mode.")
     import rospy

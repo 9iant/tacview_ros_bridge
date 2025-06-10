@@ -35,8 +35,8 @@ class TacviewServer:
             header = (
                 f"FileType=text/acmi/tacview\r\nFileVersion=2.2\r\n"
                 f"0,ReferenceTime={ref_time}\r\n"
-                f"0,DataSource=PX4 MAVROS Bridge\r\n"
-                f"0,Author=Multi-UAV Pilot\r\n\r\n"
+                # f"0,DataSource=PX4 MAVROS Bridge\r\n"
+                # f"0,Author=Multi-UAV Pilot\r\n\r\n"
             )
             conn.sendall(header.encode('utf-8'))
             print(f"[<] ACMI header sent to {addr}")
@@ -60,7 +60,7 @@ class TacviewServer:
                     if ac_id not in known_aircraft:
                         acmi_frame += (
                             f"{state.aircraft_id},"
-                            f"T={state.latitude:.6f}|{state.longitude:.6f}|{state.altitude_m:.1f},"
+                            f"T={state.longitude:.6f}|{state.latitude:.6f}|{state.altitude_m:.1f},"
                             f"Name={state.aircraft_type},"
                             f"Pilot={state.pilot_name},"
                             f"Type=Air+FixedWing," # Can be made dynamic
@@ -72,7 +72,7 @@ class TacviewServer:
                     # Object data update
                     acmi_frame += (
                         f"{state.aircraft_id},"
-                        f"T={state.latitude:.6f}|{state.longitude:.6f}|{state.altitude_m:.1f}|"
+                        f"T={state.longitude:.6f}|{state.latitude:.6f}|{state.altitude_m:.1f}|"
                         f"{state.roll_deg:.1f}|{state.pitch_deg:.1f}|{state.yaw_deg:.1f},"
                         f"Speed={state.ground_speed_knots:.1f}\r\n"
                     )
